@@ -1,3 +1,22 @@
+## Instrucciones/Notas
+
+## para generar un nuevo proyecto es con el comado
+## laravel new [nombre]
+
+## Para ejecutar por primera vez es necesario ejecutar el comando 
+## php artisan migrate
+
+## Para generar nuevos modelos es necesario ejecutar el comando
+## php artisan make:model [nombre] -m
+
+## Para generar un nuevo controller es con el comando
+## php artisan make:controller [nombre] --api
+ 
+## Para consultar un listado de las rutas disponibles de la aplicación se hace con:
+## php artisan route:lis
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
