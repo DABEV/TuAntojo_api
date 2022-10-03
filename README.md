@@ -3,7 +3,10 @@
 ## para generar un nuevo proyecto es con el comado
 ## laravel new [nombre]
 
-## Para ejecutar por primera vez es necesario ejecutar el comando 
+##  Para ejecutar nuestra aplicación es con el comando
+## php artisan serve
+
+## Es necesario ejeuctar este comando para  realizar un seguimiento de las migraciones que ya se han ejecutado
 ## php artisan migrate
 
 ## Para generar nuevos modelos es necesario ejecutar el comando
@@ -13,7 +16,7 @@
 ## php artisan make:controller [nombre] --api
  
 ## Para consultar un listado de las rutas disponibles de la aplicación se hace con:
-## php artisan route:lis
+## php artisan route:list
 
 
 
