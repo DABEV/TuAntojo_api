@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RepartidorController;
 use App\Http\Controllers\EstablecimientoController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('repartidor', RepartidorController::class);
 Route::apiResource('tienda', EstablecimientoController::class);
+
+//Api de usuarios 
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+
+Route::group(['middleware' => ["auth:sanctum"]], function () {
+    Route::get('userProfile', [AuthController::class, 'userProfile']);
+    Route::get('logout', [AuthController::class, 'logout']);
+    Route::put('changePassword', [AuthController::class, 'changePassword']);
+});

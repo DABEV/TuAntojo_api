@@ -1,0 +1,7 @@
+//Inserts para usuarios, la contraseña es la misma para todos de momento, "prueba"
+
+INSERT INTO `tuantojo`.`users` (`name`, `email`, `password`) VALUES ('Franciso', 'franchesco@gmail.com', '$2y$10$a4BwrynuwTqJ1UONzM5X7eNlxE2ACZZBe50Z30tEvsccOu15yEdXu');
+INSERT INTO `tuantojo`.`users` (`name`, `email`, `password`) VALUES ('Romario', 'romario@gmail.com', '$2y$10$a4BwrynuwTqJ1UONzM5X7eNlxE2ACZZBe50Z30tEvsccOu15yEdXu');
+INSERT INTO `tuantojo`.`users` (`name`, `email`, `password`) VALUES ('Violeta', 'violeta@gmail.com', '$2y$10$a4BwrynuwTqJ1UONzM5X7eNlxE2ACZZBe50Z30tEvsccOu15yEdXu');
+INSERT INTO `tuantojo`.`users` (`name`, `email`, `password`) VALUES ('Abraham', 'rashid@gmail.com', '$2y$10$a4BwrynuwTqJ1UONzM5X7eNlxE2ACZZBe50Z30tEvsccOu15yEdXu');
+INSERT INTO `tuantojo`.`users` (`name`, `email`, `password`) VALUES ('Kevin', 'notbrian@gmail.com', '$2y$10$a4BwrynuwTqJ1UONzM5X7eNlxE2ACZZBe50Z30tEvsccOu15yEdXu');
