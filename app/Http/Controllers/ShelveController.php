@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class ShelveController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $shelves = Shelve::all();

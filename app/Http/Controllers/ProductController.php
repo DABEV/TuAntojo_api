@@ -19,13 +19,15 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required'
+            'name' => 'required',
+            'price' => 'required'
         ]);
         if (!$validator->fails()) {
             DB::beginTransaction();
             try {
                 $product = new Product();
                 $product->name = $request->name;
+                $product->price = $request->price;
                 $product->save();
                 DB::commit();
                 return $this->getResponse201('product', 'created', $product);

@@ -6,6 +6,7 @@ use App\Http\Controllers\RepartidorController;
 use App\Http\Controllers\EstablecimientoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShelveController;
 
 /*
 |--------------------------------------------------------------------------
