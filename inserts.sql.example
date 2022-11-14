@@ -5,3 +5,13 @@ INSERT INTO `tuantojo`.`users` (`name`, `email`, `password`) VALUES ('Romario', 
 INSERT INTO `tuantojo`.`users` (`name`, `email`, `password`) VALUES ('Violeta', 'violeta@gmail.com', '$2y$10$a4BwrynuwTqJ1UONzM5X7eNlxE2ACZZBe50Z30tEvsccOu15yEdXu');
 INSERT INTO `tuantojo`.`users` (`name`, `email`, `password`) VALUES ('Abraham', 'rashid@gmail.com', '$2y$10$a4BwrynuwTqJ1UONzM5X7eNlxE2ACZZBe50Z30tEvsccOu15yEdXu');
 INSERT INTO `tuantojo`.`users` (`name`, `email`, `password`) VALUES ('Kevin', 'notbrian@gmail.com', '$2y$10$a4BwrynuwTqJ1UONzM5X7eNlxE2ACZZBe50Z30tEvsccOu15yEdXu');
+
+// Productos de prueba
+INSERT INTO products (name, price) VALUES ('Dulce de leche', '15');
+INSERT INTO products (name, price) VALUES ('Cocada tradicional', '12.50');
+INSERT INTO products (name, price) VALUES ('Planqueta', '9.50');
+
+// Estantes de prueba
+INSERT INTO shelves (name) VALUES ('Estante 1');
+INSERT INTO shelves (name) VALUES ('Estante 2');
+INSERT INTO shelves (name) VALUES ('Estante 3');
