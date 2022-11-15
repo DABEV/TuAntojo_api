@@ -10,56 +10,73 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $orders = Order::all();
         return $this->getResponse200($orders);
     }
 
-    public function store(Request $request){
-        DB::beginTransaction();
-        try{
-            $order= new Order();
-            $order->store_id=$request->store_id;
-            if($request->store_id !=null){
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'store_id' => 'required',
+            'status' => 'required',
+        ]);
+        if (!$validator->fails()) {
+            DB::beginTransaction();
+            try {
+                $order = new Order();
+                $order->store_id = $request->store_id;
+                $order->status = $request->status;
                 $order->save();
                 DB::commit();
                 return $this->getResponse201('order', 'created', $order);
+            } catch (Exception $e) {
+                DB::rollBack();
+                return $this->getResponse500([$e->getMessage()]);
             }
-        }catch(Exception $e){
-            DB::rollBack();
-            return $this->getResponse500([$e->getMessage()]);
+        } else {
         }
     }
-    public function update(Request $request, $id){
-        $order = Order::find($id);
-        DB::beginTransaction();
-        try{
-            $order->store_id=$request->store_id;
-            $order->save();
-            DB::commit();
-            return $this->getResponse201('order','updated',$order);
-        }catch(Exception $e){
-            DB::rollBack();
-            return $this-> getResponse500([$e->getMessage()]);
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'store_id' => 'required',
+            'status' => 'required',
+        ]);
+        if (!$validator->fails()) {
+            $order = Order::find($id);
+            DB::beginTransaction();
+            try {
+                $order->store_id = $request->store_id;
+                $order->save();
+                DB::commit();
+                return $this->getResponse201('order', 'updated', $order);
+            } catch (Exception $e) {
+                DB::rollBack();
+                return $this->getResponse500([$e->getMessage()]);
+            }
         }
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $order = Order::find($id);
         DB::beginTransaction();
-        if($order!=null){
+        if ($order != null) {
             return $this->getResponse200($order);
-        }else{
+        } else {
             return $this->getResponse404();
         }
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         $order = Order::find($id);
-        if($order !=null){
+        if ($order != null) {
             $order->delete();
             return $this->getResponse200($order);
-        }else{
+        } else {
             return $this->getResponse404();
         }
     }
