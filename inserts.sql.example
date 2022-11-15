@@ -15,3 +15,8 @@ INSERT INTO products (name, price) VALUES ('Planqueta', '9.50');
 INSERT INTO shelves (name) VALUES ('Estante 1');
 INSERT INTO shelves (name) VALUES ('Estante 2');
 INSERT INTO shelves (name) VALUES ('Estante 3');
+
+// Sucursales de prueba
+INSERT INTO stores (name,ubication) VALUES ('Minisuper don angel', 'Av.Emiliano zapata#21');
+INSERT INTO stores (name,ubication) VALUES ('Oxxo Agaves','Av.Paseos del rio #32');
+INSERT INTO stores (name,ubication) VALUES ('Abarrotes 3 hermanos', 'Calle Juan vargas#7');

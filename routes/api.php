@@ -7,6 +7,7 @@ use App\Http\Controllers\EstablecimientoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShelveController;
+use App\Http\Controllers\StoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('repartidor', RepartidorController::class);
 Route::apiResource('tienda', EstablecimientoController::class);
 
-//Api de usuarios 
+//Api de usuarios
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
@@ -50,4 +51,11 @@ Route::prefix('product')->group(function(){
     Route::put('update/{id}', [ProductController::class, "update"]);
     Route::get('show/{id}', [ProductController::class, "show"]);
     Route::delete('destroy/{id}', [ProductController::class, "destroy"]);
+});
+Route::prefix('store')->group(function(){
+    Route::get('index', [StoreController::class, "index"]);
+    Route::post('store', [StoreController::class, "store"]);
+    Route::put('update/{id}', [StoreController::class, "update"]);
+    Route::get('show/{id}', [StoreController::class, "show"]);
+    Route::delete('destroy/{id}', [StoreController::class, "destroy"]);
 });
