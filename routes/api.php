@@ -5,9 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RepartidorController;
 use App\Http\Controllers\EstablecimientoController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShelveController;
 use App\Http\Controllers\StoreController;
+use App\Models\OrderProduct;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,10 +56,28 @@ Route::prefix('product')->group(function(){
     Route::get('show/{id}', [ProductController::class, "show"]);
     Route::delete('destroy/{id}', [ProductController::class, "destroy"]);
 });
+
 Route::prefix('store')->group(function(){
     Route::get('index', [StoreController::class, "index"]);
     Route::post('store', [StoreController::class, "store"]);
     Route::put('update/{id}', [StoreController::class, "update"]);
     Route::get('show/{id}', [StoreController::class, "show"]);
     Route::delete('destroy/{id}', [StoreController::class, "destroy"]);
+});
+
+
+Route::prefix('order')->group(function(){
+    Route::get('index', [OrderController::class, "index"]);
+    Route::post('store', [OrderController::class, "store"]);
+    Route::put('update/{id}', [OrderController::class, "update"]);
+    Route::get('show/{id}', [OrderController::class, "show"]);
+    Route::delete('destroy/{id}', [OrderController::class, "destroy"]);
+});
+
+Route::prefix('orderProduct')->group(function(){
+    Route::get('index', [OrderProductController::class, "index"]);
+    Route::post('store', [OrderProductController::class, "store"]);
+    Route::put('update/{id}', [OrderProductController::class, "update"]);
+    Route::get('show/{id}', [OrderProductController::class, "show"]);
+    Route::delete('destroy/{id}', [OrderProductController::class, "destroy"]);
 });
