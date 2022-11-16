@@ -19,15 +19,19 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'store_id' => 'required',
             'status' => 'required',
+            'amount' => 'required',
+            'store_id' => 'required',
+            'product_id' => 'required'
         ]);
         if (!$validator->fails()) {
             DB::beginTransaction();
             try {
                 $order = new Order();
-                $order->store_id = $request->store_id;
                 $order->status = $request->status;
+                $order->amount = $request->amount;
+                $order->product_id = $request->product_id;
+                $order->store_id = $request->store_id;
                 $order->save();
                 DB::commit();
                 return $this->getResponse201('order', 'created', $order);
@@ -41,13 +45,18 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'store_id' => 'required',
             'status' => 'required',
+            'amount' => 'required',
+            'store_id' => 'required',
+            'product_id' => 'required'
         ]);
         if (!$validator->fails()) {
             $order = Order::find($id);
             DB::beginTransaction();
             try {
+                $order->status = $request->status;
+                $order->amount = $request->amount;
+                $order->product_id = $request->product_id;
                 $order->store_id = $request->store_id;
                 $order->save();
                 DB::commit();
