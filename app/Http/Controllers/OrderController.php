@@ -56,8 +56,8 @@ class OrderController extends Controller
             try {
                 $order->status = $request->status;
                 $order->amount = $request->amount;
-                $order->product_id = $request->product_id;
-                $order->store_id = $request->store_id;
+                $order->product_id = $request->product["id"];
+                $order->store_id = $request->store["id"];
                 $order->save();
                 DB::commit();
                 return $this->getResponse201('order', 'updated', $order);
