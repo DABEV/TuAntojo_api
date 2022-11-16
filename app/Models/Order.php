@@ -13,8 +13,10 @@ class Order extends Model
 
     protected $fillable =[
         'id',
-        'store_id',
-        'status'
+        'amount',
+        'status',
+        'product_id',
+        'store_id'
     ];
 
     public $timestamps= false;

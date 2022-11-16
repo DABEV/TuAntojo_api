@@ -73,11 +73,3 @@ Route::prefix('order')->group(function(){
     Route::get('show/{id}', [OrderController::class, "show"]);
     Route::delete('destroy/{id}', [OrderController::class, "destroy"]);
 });
-
-Route::prefix('orderProduct')->group(function(){
-    Route::get('index', [OrderProductController::class, "index"]);
-    Route::post('store', [OrderProductController::class, "store"]);
-    Route::put('update/{id}', [OrderProductController::class, "update"]);
-    Route::get('show/{id}', [OrderProductController::class, "show"]);
-    Route::delete('destroy/{id}', [OrderProductController::class, "destroy"]);
-});
