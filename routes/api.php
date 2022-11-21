@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RepartidorController;
 use App\Http\Controllers\EstablecimientoController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderProductController;
 use App\Http\Controllers\ProductController;
@@ -72,4 +73,12 @@ Route::prefix('order')->group(function(){
     Route::put('update/{id}', [OrderController::class, "update"]);
     Route::get('show/{id}', [OrderController::class, "show"]);
     Route::delete('destroy/{id}', [OrderController::class, "destroy"]);
+});
+
+Route::prefix('comment')->group(function(){
+    Route::get('index', [CommentController::class, "index"]);
+    Route::post('store/{id}', [CommentController::class, "store"]);
+    Route::put('update/{id}', [CommentController::class, "update"]);
+    Route::get('show/{id}', [CommentController::class, "show"]);
+    Route::delete('destroy/{id}', [CommentController::class, "destroy"]);
 });

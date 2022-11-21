@@ -40,6 +40,7 @@ class OrderController extends Controller
                 return $this->getResponse500([$e->getMessage()]);
             }
         } else {
+            return $this->getResponse500([$validator->errors()]);
         }
     }
     public function update(Request $request, $id)
@@ -65,6 +66,8 @@ class OrderController extends Controller
                 DB::rollBack();
                 return $this->getResponse500([$e->getMessage()]);
             }
+        }else{
+            return $this->getResponse500([$validator->errors()]);
         }
     }
 
