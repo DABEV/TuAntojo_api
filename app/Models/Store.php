@@ -9,7 +9,7 @@ class Store extends Model
 {
     use HasFactory;
     protected $table = 'stores';
-    protected $fillable = ['id', 'name', 'ubication'];
+    protected $fillable = ['id', 'name', 'ubication','user_id'];
 
     public $timestamps = false;
 }
