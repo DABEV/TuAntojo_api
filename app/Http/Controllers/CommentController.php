@@ -16,12 +16,18 @@ class CommentController extends Controller
         $comments = Comment::all();
         return $this->getResponse200($comments);
     }
+    public function findByUserId($id)
+    {
+        $comments= DB::select('select * from comments where user_id = ?', [$id]);
+        return $this->getResponse200($comments);
+    }
 
-    public function store(Request $request, $store_id)
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'description' => 'required',
-            'photo' => 'required',
+            'user_id' => 'required',
+            //'photo' => 'required',
         ]);
         if (!$validator->fails()) {
             DB::beginTransaction();
@@ -29,7 +35,8 @@ class CommentController extends Controller
                 $comment = new Comment();
                 $comment->description = $request->description;
                 $comment->photo = $request->photo;
-                $comment->store_id = $store_id;
+                $comment->store_id = $request->store_id;
+                $comment->user_id = $request->user_id;
                 DB::commit();
                 return $this->getResponse201('comment', 'created', $comment);
             } catch (Exception $e) {
@@ -43,8 +50,9 @@ class CommentController extends Controller
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(), [
             'description' => 'required',
-            'photo' => 'required',
-            'store_id' => 'required'
+            //'photo' => 'required',
+            'store_id' => 'required',
+            'user_id' => 'required',
         ]);
         if(!$validator->fails()){
             $comment = Comment::find($id);
@@ -53,6 +61,7 @@ class CommentController extends Controller
                 $comment->description = $request->description;
                 $comment->photo = $request->photo;
                 $comment->store_id= $request->store_id;
+                $comment->user_id = $request->user_id;
                 DB::commit();
                 return $this->getResponse201('comment', 'updated', $comment);
             }catch(Exception $e){
@@ -74,7 +83,7 @@ class CommentController extends Controller
             return $this->getResponse404();
         }
     }
-    
+
     public function destroy($id)
     {
         $comment = Comment::find($id);

@@ -68,6 +68,7 @@ Route::prefix('store')->group(function(){
 
 
 Route::prefix('order')->group(function(){
+    Route::get('findById/{id}', [OrderController::class, "findById"]);
     Route::get('index', [OrderController::class, "index"]);
     Route::post('store', [OrderController::class, "store"]);
     Route::put('update/{id}', [OrderController::class, "update"]);
@@ -77,7 +78,8 @@ Route::prefix('order')->group(function(){
 
 Route::prefix('comment')->group(function(){
     Route::get('index', [CommentController::class, "index"]);
-    Route::post('store/{id}', [CommentController::class, "store"]);
+    Route::get('findById/{id}', [CommentController::class, "findById"]);
+    Route::post('store', [CommentController::class, "store"]);
     Route::put('update/{id}', [CommentController::class, "update"]);
     Route::get('show/{id}', [CommentController::class, "show"]);
     Route::delete('destroy/{id}', [CommentController::class, "destroy"]);

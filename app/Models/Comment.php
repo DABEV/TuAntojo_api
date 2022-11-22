@@ -15,6 +15,7 @@ class Comment extends Model
         'id',
         'description',
         'photo',
-        'store_id'
+        'store_id',
+        'user_id'
     ];
 }

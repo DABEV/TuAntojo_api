@@ -16,7 +16,8 @@ class Order extends Model
         'amount',
         'status',
         'product_id',
-        'store_id'
+        'store_id',
+        'user_id'
     ];
 
     public $timestamps= false;

@@ -15,14 +15,19 @@ class OrderController extends Controller
         $orders = Order::all();
         return $this->getResponse200($orders);
     }
-
+    public function findByUserId($id)
+    {
+        $orders= DB::select('select * from orders where user_id = ?', [$id]);
+        return $this->getResponse200($orders);
+    }
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'status' => 'required',
             'amount' => 'required',
             'store_id' => 'required',
-            'product_id' => 'required'
+            'product_id' => 'required',
+            'user_id' => 'required'
         ]);
         if (!$validator->fails()) {
             DB::beginTransaction();
@@ -32,6 +37,7 @@ class OrderController extends Controller
                 $order->amount = $request->amount;
                 $order->product_id = $request->product_id;
                 $order->store_id = $request->store_id;
+                $order->user_id = $request->user_id;
                 $order->save();
                 DB::commit();
                 return $this->getResponse201('order', 'created', $order);
@@ -49,7 +55,8 @@ class OrderController extends Controller
             'status' => 'required',
             'amount' => 'required',
             'store_id' => 'required',
-            'product_id' => 'required'
+            'product_id' => 'required',
+            'user_id' => 'required',
         ]);
         if (!$validator->fails()) {
             $order = Order::find($id);
@@ -59,6 +66,7 @@ class OrderController extends Controller
                 $order->amount = $request->amount;
                 $order->product_id = $request->product_id;
                 $order->store_id = $request->store_id;
+                $order->user_id = $request->user_id;
                 $order->save();
                 DB::commit();
                 return $this->getResponse201('order', 'updated', $order);
