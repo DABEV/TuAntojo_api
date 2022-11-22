@@ -16,6 +16,13 @@ class StoreController extends Controller
         return $this->getResponse200($stores);
     }
 
+    public function findByUserId($id)
+    {
+        $stores= DB::select('select * from stores where user_id = ?', [$id]);
+        return $this->getResponse200($stores);
+    }
+
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
