@@ -16,9 +16,9 @@ class CommentController extends Controller
         $comments = Comment::all();
         return $this->getResponse200($comments);
     }
-    public function findByUserId($id)
+    public function findById($id)
     {
-        $comments= DB::select('select * from comments where user_id = ?', [$id]);
+        $comments= DB::select('select * from comments where store_id = ?', [$id]);
         return $this->getResponse200($comments);
     }
 
@@ -37,6 +37,7 @@ class CommentController extends Controller
                 $comment->photo = $request->photo;
                 $comment->store_id = $request->store_id;
                 $comment->user_id = $request->user_id;
+                $comment->save();
                 DB::commit();
                 return $this->getResponse201('comment', 'created', $comment);
             } catch (Exception $e) {
