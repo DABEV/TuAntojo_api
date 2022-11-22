@@ -59,6 +59,7 @@ class AuthController extends Controller
                     return response()->json([
                         'message' => "Acceso concedido, token generado",
                         'token' => $token,
+                        'data' => $user
                     ], 200);
                 }else{
                     return \response("Datos de acceso incorrectos");
@@ -99,7 +100,7 @@ class AuthController extends Controller
                 $request->user()->tokens()->delete();
                 DB::commit();
                 return \response($user);
-                
+
             }catch(Exception $e){
                 return \response("500: Internal server error");
                 DB::rollBack();
