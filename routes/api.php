@@ -60,6 +60,7 @@ Route::prefix('product')->group(function(){
 
 Route::prefix('store')->group(function(){
     Route::get('index', [StoreController::class, "index"]);
+    Route::get('findByUser/{id}', [StoreController::class, "findByUserId"]);
     Route::post('store', [StoreController::class, "store"]);
     Route::put('update/{id}', [StoreController::class, "update"]);
     Route::get('show/{id}', [StoreController::class, "show"]);
@@ -69,6 +70,7 @@ Route::prefix('store')->group(function(){
 
 Route::prefix('order')->group(function(){
     Route::get('findById/{id}', [OrderController::class, "findById"]);
+    Route::get('findByUser/{id}', [OrderController::class, "findByUserId"]);
     Route::get('index', [OrderController::class, "index"]);
     Route::post('store', [OrderController::class, "store"]);
     Route::put('update/{id}', [OrderController::class, "update"]);

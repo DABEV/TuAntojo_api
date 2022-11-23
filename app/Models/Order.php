@@ -21,12 +21,12 @@ class Order extends Model
     ];
 
     public $timestamps= false;
-
+ 
     public function store(){
         return $this->belongsTo(Store::class,"store_id","id");
     }
     public function product(){
-       // return $this->hasOne(Category::class, "id");
-       return $this->belongsTo(Product::class, "product_id", "id");
+       return $this->hasOne(product::class, "id");
+       // return $this->belongsTo(Product::class, "product_id", "id");
     }
 }
