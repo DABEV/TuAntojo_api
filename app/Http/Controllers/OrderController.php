@@ -17,7 +17,7 @@ class OrderController extends Controller
     }
     public function findByUserId($id)
     {
-        $orders= DB::select('select * from orders where user_id = ?', [$id]);
+        $orders = Order::with("product","store")->find($id);
         return $this->getResponse200($orders);
     }
     public function store(Request $request)

@@ -70,7 +70,7 @@ Route::prefix('store')->group(function(){
 
 Route::prefix('order')->group(function(){
     Route::get('findById/{id}', [OrderController::class, "findById"]);
-    Route::get('findByUser/{id}', [OrderController::class, "findByUserId"]);
+    Route::get('findByUserId/{id}', [OrderController::class, "findByUserId"]);
     Route::get('index', [OrderController::class, "index"]);
     Route::post('store', [OrderController::class, "store"]);
     Route::put('update/{id}', [OrderController::class, "update"]);

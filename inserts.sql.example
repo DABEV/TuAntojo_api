@@ -8,12 +8,16 @@ INSERT INTO products (name, price) VALUES ('Cocada tradicional', '12.50');
 INSERT INTO products (name, price) VALUES ('Planqueta', '9.50');
 
 
-INSERT INTO stores (name,ubication) VALUES ('Minisuper don angel', 'Av.Emiliano zapata#21');
-INSERT INTO stores (name,ubication) VALUES ('Oxxo Agaves','Av.Paseos del rio #32');
-INSERT INTO stores (name,ubication) VALUES ('Abarrotes 3 hermanos', 'Calle Juan vargas#7');
+INSERT INTO stores (name,ubication,user_id) VALUES ('Minisuper don angel', 'Av.Emiliano zapata#21',1);
+INSERT INTO stores (name,ubication,user_id) VALUES ('Oxxo Agaves','Av.Paseos del rio #32',2);
+INSERT INTO stores (name,ubication,user_id) VALUES ('Abarrotes 3 hermanos', 'Calle Juan vargas#7',3);
 
 
-INSERT INTO comments (description,photo,store_id,user_id) VALUES('roto','dkjcnfkjcn',1,1);
-INSERT INTO comments (description,photo,store_id,user_id) VALUES('despintado','dkjcnfkjcn',2,1);
-INSERT INTO comments (description,photo,store_id,user_id) VALUES('se sustituyo','dkjcnfkjcn',3,2);
-INSERT INTO comments (description,photo,store_id,user_id) VALUES('robado','dkjcnfkjcn',1,2);
+INSERT INTO comments (description,photo,store_id,user_id) VALUES('roto','soy una foto',1,1);
+INSERT INTO comments (description,photo,store_id,user_id) VALUES('despintado','soy una foto',1,1);
+INSERT INTO comments (description,photo,store_id,user_id) VALUES('se sustituyo','soy una foto',3,2);
+INSERT INTO comments (description,photo,store_id,user_id) VALUES('robado','soy una foto',1,2);
+
+
+INSERT INTO orders (amount,status,product_id,store_id,user_id) VALUES(20,0,1,1,1);
+INSERT INTO orders (amount,status,product_id,store_id,user_id) VALUES(10,0,2,2,2);
