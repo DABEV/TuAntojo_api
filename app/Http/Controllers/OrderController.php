@@ -19,8 +19,7 @@ class OrderController extends Controller
     {
         //$orders = DB::select('select * from orders join products on orders.product_id = products.id join stores on orders.store_id =
         //stores.id where orders.user_id= ? and orders.status= 0',[$id]);
-        $orders = Order::with("product","store")->where('user_id', '=', $id)->
-        where('status', '=',0)->get();
+        $orders = Order::with("product","store")->where('user_id', '=', $id)->get();
         return $this->getResponse200($orders);
     }
     public function store(Request $request)
@@ -28,6 +27,7 @@ class OrderController extends Controller
         $validator = Validator::make($request->all(), [
             'status' => 'required',
             'amount' => 'required',
+            'payment' => 'required',
             'store_id' => 'required',
             'product_id' => 'required',
             'user_id' => 'required'
@@ -38,6 +38,7 @@ class OrderController extends Controller
                 $order = new Order();
                 $order->status = $request->status;
                 $order->amount = $request->amount;
+                $order->payment = $request->payment;
                 $order->product_id = $request->product_id;
                 $order->store_id = $request->store_id;
                 $order->user_id = $request->user_id;
@@ -57,6 +58,7 @@ class OrderController extends Controller
         $validator = Validator::make($request->all(), [
             'status' => 'required',
             'amount' => 'required',
+            'payment' => 'required',
             'store_id' => 'required',
             'product_id' => 'required',
             'user_id' => 'required',
@@ -67,6 +69,7 @@ class OrderController extends Controller
             try {
                 $order->status = $request->status;
                 $order->amount = $request->amount;
+                $order->payment = $request->payment;
                 $order->product_id = $request->product_id;
                 $order->store_id = $request->store_id;
                 $order->user_id = $request->user_id;

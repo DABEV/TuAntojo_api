@@ -44,14 +44,13 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         if ($product != null) {
-            $product->delete();
             return $this->getResponse200($product);
         }else{
             return $this->getResponse404();
         }
     }
 
-    
+
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [

@@ -19,5 +19,5 @@ INSERT INTO comments (description,photo,store_id,user_id) VALUES('se sustituyo',
 INSERT INTO comments (description,photo,store_id,user_id) VALUES('robado','soy una foto',1,2);
 
 
-INSERT INTO orders (amount,status,product_id,store_id,user_id) VALUES(20,0,1,1,1);
-INSERT INTO orders (amount,status,product_id,store_id,user_id) VALUES(10,0,2,2,2);
+INSERT INTO orders (amount,payment,status,product_id,store_id,user_id) VALUES(20,200,0,1,1,1);
+INSERT INTO orders (amount,payment,status,product_id,store_id,user_id) VALUES(10,100,0,2,2,2);
