@@ -14,6 +14,7 @@ class Order extends Model
     protected $fillable =[
         'id',
         'amount',
+        'payment',
         'status',
         'product_id',
         'store_id',
@@ -21,7 +22,7 @@ class Order extends Model
     ];
 
     public $timestamps= false;
- 
+
     public function store(){
         return $this->belongsTo(Store::class,"store_id","id");
     }
