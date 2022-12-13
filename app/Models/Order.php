@@ -27,7 +27,7 @@ class Order extends Model
         return $this->belongsTo(Store::class,"store_id","id");
     }
     public function product(){
-       return $this->hasOne(product::class, "id");
+       return $this->hasOne(Product::class, "id");
        // return $this->belongsTo(Product::class, "product_id", "id");
     }
 }
