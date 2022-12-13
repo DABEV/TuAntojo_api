@@ -35,6 +35,7 @@ class StoreController extends Controller
                 $store = new Store();
                 $store->name = $request->name;
                 $store->ubication = $request->ubication;
+                $store->user_id= $request->user_id;
                 $store->save();
                 DB::commit();
                 return $this->getResponse201('store', 'created', $store);
